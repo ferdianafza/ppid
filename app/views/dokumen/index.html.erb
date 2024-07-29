@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Dokumen</h1>
+
+<div id="dokumen">
+  <% @dokumen.each do |dokuman| %>
+    <%= render dokuman %>
+    <p>
+      <%= link_to "Show this dokuman", dokuman %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New dokuman", new_dokuman_path %>

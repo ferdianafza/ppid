@@ -1,0 +1,37 @@
+<%= form_with(model: artikel) do |form| %>
+  <% if artikel.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(artikel.errors.count, "error") %> prohibited this artikel from being saved:</h2>
+
+      <ul>
+        <% artikel.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :jenis, style: "display: block" %>
+    <%= form.text_field :jenis %>
+  </div>
+
+  <div>
+    <%= form.label :judul, style: "display: block" %>
+    <%= form.text_field :judul %>
+  </div>
+
+  <div>
+    <%= form.label :banner, style: "display: block" %>
+    <%= form.text_field :banner %>
+  </div>
+
+  <div>
+    <%= form.label :konten, style: "display: block" %>
+    <%= form.text_field :konten %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

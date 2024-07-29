@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  jenis: MyString
+  judul: MyString
+  banner: MyString
+  konten: MyString
+
+two:
+  jenis: MyString
+  judul: MyString
+  banner: MyString
+  konten: MyString

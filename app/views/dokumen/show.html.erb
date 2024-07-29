@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @dokuman %>
+
+<div>
+  <%= link_to "Edit this dokuman", edit_dokuman_path(@dokuman) %> |
+  <%= link_to "Back to dokumen", dokumen_path %>
+
+  <%= button_to "Destroy this dokuman", @dokuman, method: :delete %>
+</div>

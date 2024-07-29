@@ -1,0 +1,21 @@
+<div id="<%= dom_id artikel %>">
+  <!-- <p>
+    <strong>Jenis:</strong>
+    <%= artikel.jenis %>
+  </p> -->
+
+  <p>
+    <strong>Judul:</strong>
+    <%= artikel.judul %>
+  </p>
+
+  <p>
+    <%= image_tag url_for(artikel.banner) if artikel.banner.attached? %>
+  </p>
+
+  <p>
+    <strong>Konten:</strong>
+    <%= artikel.konten %>
+  </p>
+
+</div>

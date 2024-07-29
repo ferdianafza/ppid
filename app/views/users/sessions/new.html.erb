@@ -1,0 +1,20 @@
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <!-- Render flash messages -->
+  <% if flash[:alert] %>
+    <div class="flash alert">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+
+  <!-- Form fields -->
+  <label for="chk" aria-hidden="true" class="label">Log in</label>
+  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'field-input', placeholder: 'Email' %>
+  <%= f.password_field :password, autocomplete: "current-password", class: 'field-input', placeholder: 'Password' %>
+
+  <div class="actions">
+    <%= f.submit "Log in", class: 'btn' %>
+  </div>
+<% end %>
+
+<%= render "users/shared/links" %>

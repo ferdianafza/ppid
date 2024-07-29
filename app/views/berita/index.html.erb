@@ -1,0 +1,8 @@
+<div id="kegiatan">
+  <% @berita.each do |berita| %>
+    <%= render berita %>
+    <p>
+      <%= link_to "Show this berita", berita %>
+    </p>
+  <% end %>
+</div>

@@ -1,0 +1,2 @@
+module KegiatanHelper
+end

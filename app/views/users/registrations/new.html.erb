@@ -1,0 +1,22 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'signup-form' }) do |f| %>
+  <label for="chk" aria-hidden="true" class="label" >Sign up</label>
+  <% if flash[:alert] %>
+    <div class="flash alert">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+    <%= f.number_field :ktp, required: true, size: 16, placeholder: 'Isi KTP 16 Digit', class: 'field-input' %>
+    <%= f.text_field :nama_lengkap, required: true, placeholder: 'Isi Nama Lengkap Anda', class: 'field-input' %>
+    <%= f.number_field :telepon, required: true, placeholder: 'Isi Nomor Telepon Anda: 082112345678', class: 'field-input' %>
+    <%= f.text_field :alamat, required: true, placeholder: 'Isi Alamat Lengkap Anda', class: 'field-input' %>
+    <%= f.text_field :pekerjaan, required: true, placeholder: 'Isi Pekerjaan Anda', class: 'field-input' %>
+    <%= f.text_field :username, required: true, placeholder: 'Isi Username Anda', class: 'field-input' %>
+    <%= f.email_field :email, required: true, autofocus: true, autocomplete: "email", placeholder: 'Isi Email Anda', class: 'field-input' %>
+    <%= f.password_field :password, required: true, autocomplete: "new-password", placeholder: 'Buat Password Anda', class: 'field-input' %>
+    <%= f.password_field :password_confirmation, required: true, autocomplete: "new-password", placeholder: 'Masukkan Kembali Password Anda', class: 'field-input' %>
+  <div class="actions">
+    <%= f.submit "Sign up", class: 'btn' %>
+
+  </div>
+<% end %>
+  <%= render "users/shared/links", class: 'btn btn-info' %>

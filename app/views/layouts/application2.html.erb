@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ppid</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <%= tinymce_assets %>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  </head>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><%= image_tag 'logo.png', alt: 'Logo' %></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" style="list-style-type: none; text-decoration:none;" href="/">BERANDA <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" style="list-style-type: none; text-decoration:none;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PUBLIKASI INFORMASI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" style="list-style-type: none; text-decoration:none;" href="/berita">BERITA</a>
+          <a class="dropdown-item" style="list-style-type: none; text-decoration:none;" href="/kegiatan">KEGIATAN</a>
+        </div>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" style="list-style-type: none; text-decoration:none;" href="#">VISI & MISI <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" style="list-style-type: none; text-decoration:none;"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ALUR
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" style="list-style-type: none; text-decoration:none;"  href="#">PERMOHONAN INFORMASI</a>
+          <a class="dropdown-item" style="list-style-type: none; text-decoration:none;" href="#">PENGAJUAN KEBERATAN</a>
+          <a class="dropdown-item"style="list-style-type: none; text-decoration:none;" href="#">PENYELESAIAN SENGKETA</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" style="list-style-type: none; text-decoration:none;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PPID
+        </a>
+        <div class="dropdown-menu" style="list-style-type: none; text-decoration:none;" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" style="list-style-type: none; text-decoration:none;" href="/ppid/utama">PPID UTAMA</a>
+          <a class="dropdown-item" style="list-style-type: none; text-decoration:none;" href="/ppid/pelaksana">PPID PELAKSANA</a>
+          <a class="dropdown-item" style="list-style-type: none; text-decoration:none;" href="/ppid/pembantu">PPID PEMBANTU</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" style="list-style-type: none; text-decoration:none;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          INFORMASI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" style="list-style-type: none; text-decoration:none;"  href="/informasi/berkala">INFORMASI BERKALA</a>
+          <a class="dropdown-item" style="list-style-type: none; text-decoration:none;"  href="/informasi/setiap_saat">INFORMASI SETIAP SAAT</a>
+          <a class="dropdown-item" style="list-style-type: none; text-decoration:none;"  href="/informasi/serta_merta">INFORMASI SERTA MERTA</a>
+          <a class="dropdown-item" style="list-style-type: none; text-decoration:none;"  href="/informasi/dikecualikan">INFORMASI DIKECUALIKAN</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" style="list-style-type: none; text-decoration:none;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          JENIS DOKUMEN
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" style="list-style-type: none; text-decoration:none;"  href="/jenis_dokumen/profil_badan_publik">PROFIL BADAN PUBLIK</a>
+          <a class="dropdown-item" style="list-style-type: none; text-decoration:none;"  href="/jenis_dokumen/program_dan_kegiatan">PROGRAM DAN KEGIATAN</a>
+          <a class="dropdown-item" style="list-style-type: none; text-decoration:none;"  href="/jenis_dokumen/informasi_kinerja">INFORMASI KINERJA</a>
+          <a class="dropdown-item" style="list-style-type: none; text-decoration:none;"  href="/jenis_dokumen/laporan_keuangan">LAPORAN KEUANGAN</a>
+          <a class="dropdown-item" style="list-style-type: none; text-decoration:none;"  href="/jenis_dokumen/laporan_dan_prosedur_akses_informasi">LAPORAN DAN PROSEDUR AKSES INFORMASI</a>
+          <a class="dropdown-item" style="list-style-type: none; text-decoration:none;"  href="/jenis_dokumen/pengaduan_dan_pelanggaran">PENGADUAN DAN PELANGGARAN</a>
+          <a class="dropdown-item" style="list-style-type: none; text-decoration:none;"  href="/jenis_dokumen/pengadaan_barang_dan_jasa">PENGADAAN BARANG DAN JASA</a>
+          <a class="dropdown-item" style="list-style-type: none; text-decoration:none;"  href="/jenis_dokumen/informasi_darurat">INFORMASI DARURAT</a>
+          <a class="dropdown-item" style="list-style-type: none; text-decoration:none;"  href="/jenis_dokumen/hasil_penelitian">HASIL PENELITIAN</a>
+          <a class="dropdown-item" style="list-style-type: none; text-decoration:none;"  href="/jenis_dokumen/regulasi">REGULASI</a>
+        </div>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" style="list-style-type: none; text-decoration:none;" href="/pengajuaninformasis/new">PERMOHONAN INFORMASI <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <% if user_signed_in? %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn navbar-link', style: 'list-style-type: none; text-decoration:none;' %>
+    <% else %>
+      <%= link_to "Log in", new_user_session_path, class: 'btn', style: 'list-style-type: none; text-decoration:none;' %>
+    <% end %>
+    </div>
+    </nav>
+  <body>
+    <%= yield %>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+  </body>
+</html>

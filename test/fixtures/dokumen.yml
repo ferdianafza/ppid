@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  judul_dokumen: MyString
+  instansi: MyString
+  jenis_dokumen: MyString
+  jenis_informasi: MyString
+  jenis_ppid: MyString
+
+two:
+  judul_dokumen: MyString
+  instansi: MyString
+  jenis_dokumen: MyString
+  jenis_informasi: MyString
+  jenis_ppid: MyString

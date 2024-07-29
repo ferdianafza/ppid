@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Jost', sans-serif;
+      background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    }
+		.flash.alert {
+		  padding: 15px;
+		  margin: 10px 0;
+		  background-color: #f8d7da;
+		  color: #721c24;
+		  border: 1px solid #f5c6cb;
+		  border-radius: 4px;
+		}
+    .main {
+			width: 480px;
+			height: auto;
+			background: red;
+			overflow: hidden;
+      background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
+      border-radius: 10px;
+      box-shadow: 5px 20px 50px #000;
+      overflow: hidden;
+    }
+    #chk {
+      display: none;
+    }
+    .signup {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .label {
+      color: #fff;
+      font-size: 2em;
+      justify-content: center;
+      display: flex;
+      margin: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: .5s ease-in-out;
+    }
+    .field-input {
+      width: 75%;
+      height: 12.5px; /* Adjusted height for better fit */
+      background: #e0dede;
+      display: block;
+      margin: 15px auto;
+      padding: 10px;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+    }
+    .btn {
+      width: 60%;
+      height: 40px;
+      margin: 10px auto;
+      display: block;
+      color: #fff;
+      background: #573b8a;
+      font-size: 1em;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      transition: .2s ease-in;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #6d44b8;
+    }
+    .login {
+      height: 460px;
+      background: #eee;
+      border-radius: 60% / 10%;
+      transform: translateY(-180px);
+      transition: .8s ease-in-out;
+    }
+    .login label {
+      color: #573b8a;
+      transform: scale(.6);
+    }
+
+    #chk:checked ~ .login {
+      transform: translateY(-500px);
+    }
+    #chk:checked ~ .login label {
+      transform: scale(1);
+    }
+    #chk:checked ~ .signup label {
+      transform: scale(.6);
+    }
+		.btn-info {
+		  display: inline-block;
+		  padding: 10px 20px;
+		  font-size: 16px;
+		  font-weight: bold;
+		  text-align: center;
+		  border: none;
+		  border-radius: 5px;
+		  cursor: pointer;
+		  text-decoration: none;
+		  color: #fff;
+		  transition: background-color 0.3s ease;
+		}
+		.btn-info {
+		  background-color: #17a2b8; /* Info button color */
+		}
+
+		.btn-info:hover {
+		  background-color: #138496; /* Darker shade on hover */
+		}
+  </style>
+</head>
+<body>
+  <div class="main">
+    <input type="checkbox" id="chk" aria-hidden="true">
+    <div class="signup">
+			<%= yield %>
+    </div>
+  </div>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+	<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      <% flash.each do |type, message| %>
+        <% if type == "alert" %>
+          toastr.error("<%= j message %>");
+        <% end %>
+      <% end %>
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<%= stylesheet_link_tag 'actiontext' %>
+<%= form_with(model: pengajuaninformasi) do |form| %>
+  <% if pengajuaninformasi.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(pengajuaninformasi.errors.count, "error") %> prohibited this pengajuaninformasi from being saved:</h2>
+
+      <ul>
+        <% pengajuaninformasi.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :No_Ktp, style: "display: block" %>
+    <%= form.text_field :noEKtp, value: current_user.ktp, readonly: true %>
+  </div>
+
+  <div>
+    <%= form.label :nama_lengkap, style: "display: block" %>
+    <%= form.text_field :namaLenkap, value: current_user.nama_lengkap, readonly: true%>
+  </div>
+
+  <div>
+    <%= form.label :Email, style: "display: block" %>
+    <%= form.text_field :alamatEmail,value: current_user.email, readonly: true%>
+  </div>
+
+  <div>
+    <%= form.label :Telepon, style: "display: block" %>
+    <%= form.text_field :noTelepon, value: current_user.telepon, readonly: true%>
+  </div>
+
+  <div>
+    <%= form.label :jenisPermohonan, style: "display: block" %>
+    <%= form.select :jenisPermohonan, ['perorangan', 'kelompok organisasi', 'badan hukum'] %>
+  </div>
+
+  <div>
+    <%= form.label :Alamat_Lengkap, style: "display: block" %>
+    <%= form.text_field :alamatLengkap, value: current_user.alamat, readonly: true%>
+  </div>
+
+  <div>
+    <%= form.label :pekerjaan, style: "display: block" %>
+    <%= form.text_field :pekerjaan, value: current_user.pekerjaan, readonly: true%>
+  </div>
+
+  <div>
+    <%= form.label :kebutuhan, style: "display: block" %>
+       <%= form.cktext_area :kebutuhan, :class => "form-control"%>
+  </div>
+
+  <div>
+    <%= form.label :cara_perolehan_informasi, style: "display: block" %>
+    <%= form.select :cara_perolehan_informasi, ['link', 'soft copy', 'hard copy', 'soft copy + hard copy'] %>
+  </div>
+
+  <div>
+    <%= form.label :tujuan, style: "display: block" %>
+    <%= form.text_field :tujuan %>
+  </div>
+
+  <div>
+    <%= form.label :dokumenIdentitas, style: "display: block" %>
+    <%= form.file_field :dokumenIdentitas, accept: 'application/pdf' %>
+    <% if @pengajuaninformasi.errors.has_key?(:dokumenIdentitas) %>
+      <p><%= @pengajuaninformasi.errors[:dokumenIdentitas].join(', ') %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :dokumenPermohonanInformasi, style: "display: block" %>
+    <%= form.file_field :dokumenPermohonanInformasi, accept: 'application/pdf' %>
+    <% if @pengajuaninformasi.errors.has_key?(:dokumenPermohonanInformasi) %>
+      <p><%= @pengajuaninformasi.errors[:dokumenPermohonanInformasi].join(', ') %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id, value: current_user.id , readonly: true%>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

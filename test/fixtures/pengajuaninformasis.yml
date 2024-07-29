@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  noEKtp: MyString
+  namaLenkap: MyString
+  alamatEmail: MyString
+  noTelepon: MyString
+  jenisPermohonan: MyString
+  alamatLengkap: MyString
+  pekerjaan: MyString
+  kebutuhan: MyString
+  tujuancaraPerolehanInformasi: MyString
+  dokumenIdentitas: MyString
+  dokumenPermohonanInformasi: MyString
+
+two:
+  noEKtp: MyString
+  namaLenkap: MyString
+  alamatEmail: MyString
+  noTelepon: MyString
+  jenisPermohonan: MyString
+  alamatLengkap: MyString
+  pekerjaan: MyString
+  kebutuhan: MyString
+  tujuancaraPerolehanInformasi: MyString
+  dokumenIdentitas: MyString
+  dokumenPermohonanInformasi: MyString
