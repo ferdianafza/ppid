@@ -49,7 +49,7 @@
 
   <div>
     <%= form.label :kebutuhan, style: "display: block" %>
-       <%= form.cktext_area :kebutuhan, :class => "form-control"%>
+       <%= form.cktext_area :kebutuhan, required: true%>
   </div>
 
   <div>
@@ -64,7 +64,7 @@
 
   <div>
     <%= form.label :dokumenIdentitas, style: "display: block" %>
-    <%= form.file_field :dokumenIdentitas, accept: 'application/pdf' %>
+    <%= form.file_field :dokumenIdentitas, accept: 'application/pdf', required: true %>
     <% if @pengajuaninformasi.errors.has_key?(:dokumenIdentitas) %>
       <p><%= @pengajuaninformasi.errors[:dokumenIdentitas].join(', ') %></p>
     <% end %>
@@ -72,7 +72,7 @@
 
   <div>
     <%= form.label :dokumenPermohonanInformasi, style: "display: block" %>
-    <%= form.file_field :dokumenPermohonanInformasi, accept: 'application/pdf' %>
+    <%= form.file_field :dokumenPermohonanInformasi, accept: 'application/pdf', required: true%>
     <% if @pengajuaninformasi.errors.has_key?(:dokumenPermohonanInformasi) %>
       <p><%= @pengajuaninformasi.errors[:dokumenPermohonanInformasi].join(', ') %></p>
     <% end %>
