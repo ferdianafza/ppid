@@ -1,9 +1,79 @@
-<%= stylesheet_link_tag 'actiontext' %>
-<%= form_with(model: pengajuaninformasi) do |form| %>
+<style type="text/css">
+.form-style-9{
+	max-width: 450px;
+	background: #FAFAFA;
+	padding: 30px;
+	margin: 50px auto;
+	box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+	border-radius: 10px;
+	border: 6px solid #305A72;
+}
+.form-style-9 ul{
+	padding:0;
+	margin:0;
+	list-style:none;
+}
+.form-style-9 ul li{
+	display: block;
+	margin-bottom: 10px;
+	min-height: 35px;
+}
+.form-style-9 ul li  .field-style{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	padding: 8px;
+	outline: none;
+	border: 1px solid #B0CFE0;
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+
+}.form-style-9 ul li  .field-style:focus{
+	box-shadow: 0 0 5px #B0CFE0;
+	border:1px solid #B0CFE0;
+}
+.form-style-9 ul li .field-split{
+	width: 49%;
+}
+.form-style-9 ul li .field-full{
+	width: 100%;
+}
+.form-style-9 ul li input.align-left{
+	float:left;
+}
+.form-style-9 ul li input.align-right{
+	float:right;
+}
+.form-style-9 ul li textarea{
+	width: 100%;
+	height: 100px;
+}
+.form-style-9 ul li input[type="button"],
+.form-style-9 ul li input[type="submit"] {
+	-moz-box-shadow: inset 0px 1px 0px 0px #3985B1;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #3985B1;
+	box-shadow: inset 0px 1px 0px 0px #3985B1;
+	background-color: #216288;
+	border: 1px solid #17445E;
+	display: inline-block;
+	cursor: pointer;
+	color: #FFFFFF;
+	padding: 8px 18px;
+	text-decoration: none;
+	font: 12px Arial, Helvetica, sans-serif;
+}
+.form-style-9 ul li input[type="button"]:hover,
+.form-style-9 ul li input[type="submit"]:hover {
+	background: linear-gradient(to bottom, #2D77A2 5%, #337DA8 100%);
+	background-color: #28739E;
+}
+</style>
+<%= form_with(model: pengajuaninformasi, html: { class: 'form-style-9' }) do |form| %>
   <% if pengajuaninformasi.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(pengajuaninformasi.errors.count, "error") %> prohibited this pengajuaninformasi from being saved:</h2>
-
       <ul>
         <% pengajuaninformasi.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -12,78 +82,58 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :No_Ktp, style: "display: block" %>
-    <%= form.text_field :noEKtp, value: current_user.ktp, readonly: true %>
-  </div>
+  <ul>
+    <li>
+      <%= form.text_field :noEKtp, value: current_user.ktp, readonly: true, class: 'field-style field-split align-left', placeholder: 'No KTP' %>
+      <%= form.text_field :namaLenkap, value: current_user.nama_lengkap, readonly: true, class: 'field-style field-split align-right', placeholder: 'Nama Lengkap' %>
+    </li>
 
-  <div>
-    <%= form.label :nama_lengkap, style: "display: block" %>
-    <%= form.text_field :namaLenkap, value: current_user.nama_lengkap, readonly: true%>
-  </div>
+    <li>
+      <%= form.text_field :alamatEmail, value: current_user.email, readonly: true, class: 'field-style field-split align-left', placeholder: 'Email' %>
+      <%= form.text_field :noTelepon, value: current_user.telepon, readonly: true, class: 'field-style field-split align-right', placeholder: 'Telepon' %>
+    </li>
 
-  <div>
-    <%= form.label :Email, style: "display: block" %>
-    <%= form.text_field :alamatEmail,value: current_user.email, readonly: true%>
-  </div>
+    <li>
+      <%= form.select :jenisPermohonan, ['perorangan', 'kelompok organisasi', 'badan hukum'], { class: 'field-style field-split align-left', prompt: 'Jenis Permohonan' } %>
+      <%= form.text_field :alamatLengkap, value: current_user.alamat, readonly: true, class: 'field-style field-split align-right', placeholder: 'Alamat Lengkap' %>
+    </li>
 
-  <div>
-    <%= form.label :Telepon, style: "display: block" %>
-    <%= form.text_field :noTelepon, value: current_user.telepon, readonly: true%>
-  </div>
+    <li>
+      <%= form.text_field :pekerjaan, value: current_user.pekerjaan, readonly: true, class: 'field-style field-full align-none', placeholder: 'Pekerjaan' %>
+    </li>
 
-  <div>
-    <%= form.label :jenisPermohonan, style: "display: block" %>
-    <%= form.select :jenisPermohonan, ['perorangan', 'kelompok organisasi', 'badan hukum'] %>
-  </div>
+    <li>
+      <%= form.cktext_area :kebutuhan, required: true, class: 'field-style', placeholder: 'Kebutuhan' %>
+    </li>
 
-  <div>
-    <%= form.label :Alamat_Lengkap, style: "display: block" %>
-    <%= form.text_field :alamatLengkap, value: current_user.alamat, readonly: true%>
-  </div>
+    <li>
+      <%= form.select :cara_perolehan_informasi, ['link', 'soft copy', 'hard copy', 'soft copy + hard copy'], { class: 'field-style', prompt: 'Cara Perolehan Informasi' } %>
+    </li>
 
-  <div>
-    <%= form.label :pekerjaan, style: "display: block" %>
-    <%= form.text_field :pekerjaan, value: current_user.pekerjaan, readonly: true%>
-  </div>
+    <li>
+      <%= form.text_field :tujuan, class: 'field-style', placeholder: 'Tujuan' %>
+    </li>
 
-  <div>
-    <%= form.label :kebutuhan, style: "display: block" %>
-       <%= form.cktext_area :kebutuhan, required: true%>
-  </div>
+    <li>
+      <%= form.file_field :dokumenIdentitas, accept: 'application/pdf', required: true, class: 'field-style' %>
+      <% if @pengajuaninformasi.errors.has_key?(:dokumenIdentitas) %>
+        <p><%= @pengajuaninformasi.errors[:dokumenIdentitas].join(', ') %></p>
+      <% end %>
+    </li>
 
-  <div>
-    <%= form.label :cara_perolehan_informasi, style: "display: block" %>
-    <%= form.select :cara_perolehan_informasi, ['link', 'soft copy', 'hard copy', 'soft copy + hard copy'] %>
-  </div>
+    <li>
+      <%= form.file_field :dokumenPermohonanInformasi, accept: 'application/pdf', required: true, class: 'field-style' %>
+      <% if @pengajuaninformasi.errors.has_key?(:dokumenPermohonanInformasi) %>
+        <p><%= @pengajuaninformasi.errors[:dokumenPermohonanInformasi].join(', ') %></p>
+      <% end %>
+    </li>
 
-  <div>
-    <%= form.label :tujuan, style: "display: block" %>
-    <%= form.text_field :tujuan %>
-  </div>
+    <li>
+      <%= form.text_field :user_id, value: current_user.id, readonly: true, class: 'field-style', placeholder: 'User ID', hidden: true%>
+    </li>
 
-  <div>
-    <%= form.label :dokumenIdentitas, style: "display: block" %>
-    <%= form.file_field :dokumenIdentitas, accept: 'application/pdf', required: true %>
-    <% if @pengajuaninformasi.errors.has_key?(:dokumenIdentitas) %>
-      <p><%= @pengajuaninformasi.errors[:dokumenIdentitas].join(', ') %></p>
-    <% end %>
-  </div>
-
-  <div>
-    <%= form.label :dokumenPermohonanInformasi, style: "display: block" %>
-    <%= form.file_field :dokumenPermohonanInformasi, accept: 'application/pdf', required: true%>
-    <% if @pengajuaninformasi.errors.has_key?(:dokumenPermohonanInformasi) %>
-      <p><%= @pengajuaninformasi.errors[:dokumenPermohonanInformasi].join(', ') %></p>
-    <% end %>
-  </div>
-
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id, value: current_user.id , readonly: true%>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+    <li>
+      <%= form.submit 'Submit', class: 'field-style' %>
+    </li>
+  </ul>
 <% end %>

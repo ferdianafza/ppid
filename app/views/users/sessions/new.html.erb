@@ -1,20 +1,28 @@
+<style>
+  .btn-custom {
+  color: #17a2b8;
+  background-color: #ffffff;
+  border: 1px solid #17a2b8;
+}
 
+.btn-custom:hover {
+  background-color: #f8f9fa;
+  border-color: #17a2b8;
+}
+</style>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <!-- Render flash messages -->
   <% if flash[:alert] %>
     <div class="flash alert">
       <%= flash[:alert] %>
     </div>
   <% end %>
-
-  <!-- Form fields -->
   <label for="chk" aria-hidden="true" class="label">Log in</label>
   <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'field-input', placeholder: 'Email' %>
   <%= f.password_field :password, autocomplete: "current-password", class: 'field-input', placeholder: 'Password' %>
 
   <div class="actions">
-    <%= f.submit "Log in", class: 'btn' %>
+    <%= f.submit "Log in", class: 'btn btn-custom' %>
+    <a href="/users/sign_up" class="btn" style="text-align: center; text-decoration:none; display: flex; justify-content: center;
+  align-items: center;" >Daftar</a>
   </div>
 <% end %>
-
-<%= render "users/shared/links" %>
