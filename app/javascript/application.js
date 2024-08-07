@@ -9,6 +9,10 @@ import "trix"
 import "@rails/actiontext"
 import "./bootstrap"
 import "./custom"
+import "chartkick"
+import "Chart.bundle"
 //= require ckeditor/init
 //= require custom
+//= require chartkick
+//= require Chart.bundle
 //= require_tree .

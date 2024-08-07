@@ -43,6 +43,9 @@ gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'kaminari'
+gem "chartkick"
+gem 'groupdate'
+
 
 
 # Use Redis adapter to run Action Cable in production

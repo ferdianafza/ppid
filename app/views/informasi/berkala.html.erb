@@ -41,8 +41,7 @@
               <td><%= dokumen.jenis_ppid %></td>
               <td>
                 <% if dokumen.attachment.attached? %>
-
-                <%= link_to rails_blob_path(dokumen.attachment.blob), class: "" do %>
+                <%= link_to increment_access_dokuman_path(dokumen),target: "_blank", class: "" do %>
                   <i class="fa-solid fa-eye"></i>
                 <% end %>
                 <% else %>

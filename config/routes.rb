@@ -17,7 +17,12 @@ Rails.application.routes.draw do
   get 'ppid/utama'
   get 'ppid/pelaksana'
   get 'ppid/pembantu'
-  resources :dokumen
+  # resources :dokumen
+  resources :dokumen do
+    member do
+      get :increment_access
+    end
+  end
   resources :artikels
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

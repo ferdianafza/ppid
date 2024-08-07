@@ -1,4 +1,5 @@
 class Dokuman < ApplicationRecord
+  after_initialize :set_default_access_count, if: :new_record?
 
   has_one_attached :attachment
 
@@ -7,5 +8,9 @@ class Dokuman < ApplicationRecord
   end
   def self.ransackable_associations(auth_object = nil)
     ["attachment_attachment", "attachment_blob"]
+  end
+
+  def set_default_access_count
+    self.access_count ||= 0
   end
 end

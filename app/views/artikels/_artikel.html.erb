@@ -71,8 +71,12 @@
       </div>
     </div>
     <div class="rightcolumn">
-        <h2><%= artikel.judul %></h2>
-        <h2><%= artikel.judul %></h2>
+      <hr>
+      <% Artikel.limit(5).each do |artikel| %>
+        <p>
+          <a href="<%= artikel_path(artikel) %>" ><%= artikel.judul %></a>
+        </p>
+      <% end %>
       </div>
     </div>
   </div>
