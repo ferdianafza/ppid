@@ -24,7 +24,7 @@ class PengajuaninformasisController < ApplicationController
   # POST /pengajuaninformasis or /pengajuaninformasis.json
   def create
     @pengajuaninformasi = current_user.pengajuaninformasis.new(pengajuaninformasi_params)
-
+    @pengajuaninformasi.status = "pengajuan"
     respond_to do |format|
       if @pengajuaninformasi.save
         format.html { redirect_to pengajuaninformasi_url(@pengajuaninformasi), notice: "Pengajuaninformasi was successfully created." }
@@ -67,6 +67,6 @@ class PengajuaninformasisController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pengajuaninformasi_params
-      params.require(:pengajuaninformasi).permit(:noEKtp, :namaLenkap, :alamatEmail, :noTelepon, :jenisPermohonan, :alamatLengkap, :pekerjaan, :kebutuhan, :tujuan, :cara_perolehan_informasi, :dokumenIdentitas, :dokumenPermohonanInformasi)
+      params.require(:pengajuaninformasi).permit(:noEKtp, :namaLenkap, :alamatEmail, :noTelepon, :jenisPermohonan, :alamatLengkap, :pekerjaan, :kebutuhan, :tujuan, :cara_perolehan_informasi, :dokumenIdentitas, :dokumenPermohonanInformasi, :status)
     end
 end

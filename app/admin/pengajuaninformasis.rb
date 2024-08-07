@@ -14,6 +14,27 @@ ActiveAdmin.register Pengajuaninformasi do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+
+  permit_params :status
+
+  scope :all, default: true
+  scope "Pengajuan" do |scope|
+    scope.where(status: "pengajuan")
+  end
+  scope "Diproses" do |scope|
+    scope.where(status: "diproses")
+  end
+  scope "Selesai" do |scope|
+    scope.where(status: "selesai")
+  end
+
+  form do |f|
+    f.inputs do
+      f.input :status, as: :select, collection: ["pengajuan", "diproses", "selesai"]
+    end
+    f.actions
+  end
+
   index do
     selectable_column
     id_column
@@ -22,8 +43,9 @@ ActiveAdmin.register Pengajuaninformasi do
     column :alamatEmail
     column :noTelepon
     column :jenisPermohonan
-    column :alamatLengkap
-    column :pekerjaan
+    column :status
+    # column :alamatLengkap
+    # column :pekerjaan
     column :kebutuhan
     column :cara_perolehan_informasi
     column :tujuan

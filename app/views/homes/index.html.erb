@@ -170,7 +170,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="contact-form">
-                        <form id="contact" action="" method="post">
+                        <!-- <form id="contact" action="" method="post">
                           <div class="row">
                             <div class="col-md-6 col-sm-12">
                               <fieldset>
@@ -193,7 +193,9 @@
                               </fieldset>
                             </div>
                           </div>
-                        </form>
+                        </form> -->
+                        <h3>Status Pengajuan Informasi</h3>
+                        <%= pie_chart Pengajuaninformasi.group(:status).count %>
                     </div>
                 </div>
                 <!-- ***** Contact Form End ***** -->
