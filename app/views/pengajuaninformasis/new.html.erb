@@ -21,3 +21,38 @@
     <%= render "form", pengajuaninformasi: @pengajuaninformasi %>
 </div>
 </section>
+
+<section class="section" id="about">
+  <div class="container">
+    <h3>Status Pengajuan Informasi Saya</h3>
+    <div id="pengajuaninformasis">
+      <table class="table table-striped table-responsive">
+        <thead>
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Id Pengajuan</th>
+            <th scope="col">Jenis Permohonan</th>
+            <th scope="col">Kebutuhan</th>
+            <th scope="col">Tujuan/th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @myPengajuan.each_with_index do |pengajuan, index| %>
+            <tr>
+              <th scope="row"><%= index + 1 %></th>
+              <td><%= pengajuan.id %></td>
+              <td><%= pengajuan.jenisPermohonan %></td>
+              <td><%= pengajuan.kebutuhan %></td>
+              <td><%= pengajuan.tujuan %></td>
+              <td><%= pengajuan.status %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="left">
+      <%= paginate @myPengajuan %>
+    </div>
+  </div>
+</section>

@@ -14,6 +14,7 @@ class PengajuaninformasisController < ApplicationController
 
   # GET /pengajuaninformasis/new
   def new
+    @myPengajuan = Pengajuaninformasi.where(noEKtp: current_user.ktp).page(params[:page]).per(4)
     @pengajuaninformasi = current_user.pengajuaninformasis.new
   end
 

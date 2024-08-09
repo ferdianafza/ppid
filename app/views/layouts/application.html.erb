@@ -25,6 +25,29 @@
     <%= javascript_include_tag('popper.js') %>
     <%= javascript_include_tag('scrollreveal.min.js') %>
     <%= javascript_include_tag('waypoints.min.js') %>
+    <style>
+      .footer-logo {
+  max-width: 100%;  /* Memastikan gambar tidak melebihi lebar elemen footer */
+  height: auto;     /* Mempertahankan rasio aspek gambar */
+}
+
+/* Mengatur ukuran gambar untuk desktop */
+@media (min-width: 768px) { /* Sesuaikan dengan breakpoint desktop kamu */
+  .footer-logo {
+    width: auto;   /* Memastikan gambar tidak diperbesar */
+    max-height: 100px; /* Sesuaikan tinggi gambar sesuai kebutuhan */
+  }
+}
+
+/* Mengatur ukuran gambar untuk mobile */
+@media (max-width: 767px) { /* Sesuaikan dengan breakpoint mobile kamu */
+  .footer-logo {
+    width: auto;   /* Memastikan gambar tidak diperbesar */
+    max-height: 60px; /* Sesuaikan tinggi gambar sesuai kebutuhan */
+  }
+}
+
+    </style>
 
     <title>PPID Kota Cimahi</title>
   </head>
@@ -109,9 +132,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 col-md-12 col-sm-12">
-                    <p class="copyright">Copyright &copy; 2020 Art Factory Company
-
-                . Design: <a rel="nofollow" href="https://templatemo.com">TemplateMo</a></p>
+                    <p class="copyright">
+                      <%= image_tag 'logo-diskominfo.png', alt: 'Logo Diskominfo', class: 'footer-logo' %>
+                      Copyright &copy; 2020 Art Factory Company. Design:
+                      <a rel="nofollow" href="https://templatemo.com">TemplateMo</a>
+                    </p>
                 </div>
                 <div class="col-lg-5 col-md-12 col-sm-12">
                     <ul class="social">
