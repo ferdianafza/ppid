@@ -28,10 +28,10 @@ class PengajuaninformasisController < ApplicationController
     @pengajuaninformasi.status = "pengajuan"
     respond_to do |format|
       if @pengajuaninformasi.save
-        format.html { redirect_to pengajuaninformasi_url(@pengajuaninformasi), notice: "Pengajuaninformasi was successfully created." }
+        format.html { redirect_to new_pengajuaninformasi_url, notice: "Pengajuaninformasi was successfully created." }
         format.json { render :show, status: :created, location: @pengajuaninformasi }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to new_pengajuaninformasi_url, alert: "Failed to create Pengajuaninformasi. Please correct the errors and try again." }
         format.json { render json: @pengajuaninformasi.errors, status: :unprocessable_entity }
       end
     end

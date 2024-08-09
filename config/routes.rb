@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   resources :artikels
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  resources :pengajuaninformasis
+  resources :pengajuaninformasis, except: [:show, :index]
   devise_for :users, :controllers => { registrations: 'users/registrations', sessions: 'users/sessions' }
   # devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations'}
   devise_scope :user do
@@ -36,5 +36,6 @@ Rails.application.routes.draw do
   resources :homes
   get '/berita', to: 'berita#index'
   get '/kegiatan', to: 'kegiatan#index'
+  get '/visimisi', to: 'visimisi#index'
   root to: 'homes#index'
 end
