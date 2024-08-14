@@ -9,9 +9,24 @@
   background-color: #f8f9fa;
   border-color: #17a2b8;
 }
+.logo-image {
+  width: 112px;
+  height: 70px;
+}
+
+/* Mobile view (width up to 767px) */
+@media (max-width: 767px) {
+  .logo-image {
+    width: 25px;
+    height: 18px;
+  }
+}
 </style>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'signup-form' }) do |f| %>
-  <label for="chk" aria-hidden="true" class="label" >Sign up</label>
+<center>
+<img src="<%= asset_path 'logo-cimahi.png' %>" alt="Logo Cimahi" class="logo-image">
+<h3 style="color: white" >SIGN UP</h3>
+</center>
   <% if flash[:alert] %>
     <div class="flash alert">
       <%= flash[:alert] %>

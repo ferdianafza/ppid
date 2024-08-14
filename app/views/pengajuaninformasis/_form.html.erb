@@ -84,37 +84,38 @@
 
   <ul>
     <li>
-      <%= form.text_field :noEKtp, value: current_user.ktp, readonly: true, class: 'field-style field-split align-left', placeholder: 'No KTP' %>
-      <%= form.text_field :namaLenkap, value: current_user.nama_lengkap, readonly: true, class: 'field-style field-split align-right', placeholder: 'Nama Lengkap' %>
+      <%= form.text_field :noEKtp, value: current_user.ktp, readonly: true, class: 'field-style field-split align-left', placeholder: 'No KTP', required: true %>
+      <%= form.text_field :namaLenkap, value: current_user.nama_lengkap, readonly: true, class: 'field-style field-split align-right', placeholder: 'Nama Lengkap', required: true %>
     </li>
 
     <li>
-      <%= form.text_field :alamatEmail, value: current_user.email, readonly: true, class: 'field-style field-split align-left', placeholder: 'Email' %>
-      <%= form.text_field :noTelepon, value: current_user.telepon, readonly: true, class: 'field-style field-split align-right', placeholder: 'Telepon' %>
+      <%= form.text_field :alamatEmail, value: current_user.email, readonly: true, class: 'field-style field-split align-left', placeholder: 'Email', required: true %>
+      <%= form.text_field :noTelepon, value: current_user.telepon, readonly: true, class: 'field-style field-split align-right', placeholder: 'Telepon', required: true %>
     </li>
 
     <li>
-      <%= form.select :jenisPermohonan, ['perorangan', 'kelompok organisasi', 'badan hukum'], { class: 'field-style field-split align-left', prompt: 'Jenis Permohonan' } %>
-      <%= form.text_field :alamatLengkap, value: current_user.alamat, readonly: true, class: 'field-style field-split align-right', placeholder: 'Alamat Lengkap' %>
+      <%= form.select :jenisPermohonan, ['perorangan', 'kelompok organisasi', 'badan hukum'], { class: 'field-style field-split align-left', prompt: 'Jenis Permohonan' }, required: true %>
+      <%= form.text_field :alamatLengkap, value: current_user.alamat, readonly: true, class: 'field-style field-split align-right', placeholder: 'Alamat Lengkap', required: true %>
     </li>
 
     <li>
-      <%= form.text_field :pekerjaan, value: current_user.pekerjaan, readonly: true, class: 'field-style field-full align-none', placeholder: 'Pekerjaan' %>
+      <%= form.text_field :pekerjaan, value: current_user.pekerjaan, readonly: true, class: 'field-style field-full align-none', placeholder: 'Pekerjaan', required: true%>
     </li>
 
     <li>
-      <%= form.cktext_area :kebutuhan, required: true, class: 'field-style', placeholder: 'Kebutuhan' %>
+      <%= form.cktext_area :kebutuhan, required: true, class: 'field-style', placeholder: 'Kebutuhan', required: true %>
     </li>
 
     <li>
-      <%= form.select :cara_perolehan_informasi, ['link', 'soft copy', 'hard copy', 'soft copy + hard copy'], { class: 'field-style', prompt: 'Cara Perolehan Informasi' } %>
+      <%= form.select :cara_perolehan_informasi, ['link', 'soft copy', 'hard copy', 'soft copy + hard copy'], { class: 'field-style', prompt: 'Cara Perolehan Informasi' }, required: true %>
     </li>
 
     <li>
-      <%= form.text_field :tujuan, class: 'field-style', placeholder: 'Tujuan' %>
+      <%= form.text_field :tujuan, class: 'field-style', placeholder: 'Tujuan', required: true %>
     </li>
 
     <li>
+			<label for="">Dokumen Identitas</label>
       <%= form.file_field :dokumenIdentitas, accept: 'application/pdf', required: true, class: 'field-style' %>
       <% if @pengajuaninformasi.errors.has_key?(:dokumenIdentitas) %>
         <p><%= @pengajuaninformasi.errors[:dokumenIdentitas].join(', ') %></p>
@@ -122,6 +123,7 @@
     </li>
 
     <li>
+			<label for="">Dokumen Permohonan Informasi</label>
       <%= form.file_field :dokumenPermohonanInformasi, accept: 'application/pdf', required: true, class: 'field-style' %>
       <% if @pengajuaninformasi.errors.has_key?(:dokumenPermohonanInformasi) %>
         <p><%= @pengajuaninformasi.errors[:dokumenPermohonanInformasi].join(', ') %></p>

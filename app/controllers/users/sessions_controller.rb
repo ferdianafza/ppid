@@ -2,7 +2,7 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-  layout "auth"
+  layout "login"
   def create
     super do |resource|
       if resource.errors.any?
