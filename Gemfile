@@ -37,7 +37,7 @@ gem 'activeadmin_quill_editor'
 
 gem 'active_admin_editor', github: 'ejholmes/active_admin_editor'
 
-gem 'tinymce-rails'
+# gem 'tinymce-rails'
 
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'carrierwave'
