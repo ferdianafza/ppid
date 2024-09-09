@@ -2,9 +2,10 @@ class User < ApplicationRecord
   attr_accessor :name
   has_many :pengajuaninformasis
 
-  validates :ktp, presence: true, length: { minimum: 16, maximum: 16}
-  # validates :ktp, presence: true, length: { is: 16 }
+  # validates :ktp, presence: true, length: { minimum: 16, maximum: 16}
+  validates :ktp, presence: true, length: { is: 16 }
 
+  
   validates :telepon, presence: true, length: { minimum: 10, maximum: 13}
 
   def self.ransackable_attributes(auth_object = nil)
