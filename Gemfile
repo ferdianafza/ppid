@@ -10,7 +10,7 @@ gem "rails", "~> 7.0.8"
 gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+# gem "sqlite3", "~> 1.4"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -45,7 +45,7 @@ gem 'mini_magick'
 gem 'kaminari'
 gem "chartkick"
 gem 'groupdate'
-
+gem "aws-sdk-s3", require: false
 
 
 # Use Redis adapter to run Action Cable in production
@@ -75,6 +75,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.1.0'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
+  gem "sqlite3", "~> 1.4"
 end
 
 group :development do
@@ -94,4 +95,9 @@ group :test do
   gem "selenium-webdriver"
   gem 'shoulda-matchers', '~> 5.0'
   gem 'factory_bot_rails'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
 end
