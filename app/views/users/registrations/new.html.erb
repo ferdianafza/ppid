@@ -33,7 +33,7 @@
     </div>
   <% end %>
     <%= f.number_field :ktp, required: true, size: 16, placeholder: 'Isi KTP 16 Digit', class: 'field-input' %>
-    <%= f.text_field :nama_lengkap, required: true, placeholder: 'Isi Nama Lengkap Anda', class: 'field-input' %>
+    <%= f.text_field :nama_lengkap, required: true, placeholder: 'Isi Nama Lengkap Anda', class: 'field-input', pattern: "[a-zA-Z\s]+", title: "Hanya huruf dan spasi yang diperbolehkan" %>
     <%= f.number_field :telepon, required: true, placeholder: 'Isi Nomor Telepon Anda: 082112345678', class: 'field-input' %>
     <%= f.text_field :alamat, required: true, placeholder: 'Isi Alamat Lengkap Anda', class: 'field-input' %>
     <%= f.text_field :pekerjaan, required: true, placeholder: 'Isi Pekerjaan Anda', class: 'field-input' %>
