@@ -1,49 +1,70 @@
 <style>
   .btn-custom {
-  color: #17a2b8;
-  background-color: #ffffff;
-  border: 1px solid #17a2b8;
-}
-
-.btn-custom:hover {
-  background-color: #f8f9fa;
-  border-color: #17a2b8;
-}
-.logo-image {
-  width: 112px;
-  height: 70px;
-}
-
-/* Mobile view (width up to 767px) */
-@media (max-width: 767px) {
-  .logo-image {
-    width: 25px;
-    height: 18px;
+    color: #17a2b8;
+    background-color: #ffffff;
+    border: 1px solid #17a2b8;
   }
-}
+
+  .btn-custom:hover {
+    background-color: #f8f9fa;
+    border-color: #17a2b8;
+  }
+
+  .logo-image {
+    width: 112px;
+    height: 70px;
+  }
+
+  .field-input {
+    width: 75%;
+    height: 40px;
+    background: #e0dede;
+    display: block;
+    margin: 15px auto;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+  }
+
+  .field-input.text-area {
+    height: 100px; /* Adjust height as needed */
+    resize: vertical; /* Allows vertical resizing */
+  }
+
+  /* Mobile view (width up to 767px) */
+  @media (max-width: 767px) {
+    .logo-image {
+      width: 25px;
+      height: 18px;
+    }
+  }
 </style>
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'signup-form' }) do |f| %>
 <center>
-<img src="<%= asset_path 'logo-cimahi.png' %>" alt="Logo Cimahi" class="logo-image">
-<h3 style="color: white" >SIGN UP</h3>
+  <img src="<%= asset_path 'logo-cimahi.png' %>" alt="Logo Cimahi" class="logo-image">
+  <h3 style="color: white">SIGN UP</h3>
 </center>
-  <% if flash[:alert] %>
-    <div class="flash alert">
-      <%= flash[:alert] %>
-    </div>
-  <% end %>
-    <%= f.number_field :ktp, required: true, size: 16, placeholder: 'Isi KTP 16 Digit', class: 'field-input' %>
-    <%= f.text_field :nama_lengkap, required: true, placeholder: 'Isi Nama Lengkap Anda', class: 'field-input', pattern: "[a-zA-Z\s]+", title: "Hanya huruf dan spasi yang diperbolehkan" %>
-    <%= f.number_field :telepon, required: true, placeholder: 'Isi Nomor Telepon Anda: 082112345678', class: 'field-input' %>
-    <%= f.text_field :alamat, required: true, placeholder: 'Isi Alamat Lengkap Anda', class: 'field-input' %>
-    <%= f.text_field :pekerjaan, required: true, placeholder: 'Isi Pekerjaan Anda', class: 'field-input' %>
-    <%= f.text_field :username, required: true, placeholder: 'Isi Username Anda', class: 'field-input' %>
-    <%= f.email_field :email, required: true, autofocus: true, autocomplete: "email", placeholder: 'Isi Email Anda', class: 'field-input' %>
-    <%= f.password_field :password, required: true, autocomplete: "new-password", placeholder: 'Buat Password Anda', class: 'field-input' %>
-    <%= f.password_field :password_confirmation, required: true, autocomplete: "new-password", placeholder: 'Masukkan Kembali Password Anda', class: 'field-input' %>
-  <div class="actions">
-    <%= f.submit "Sign up", class: 'btn' %>
-    <a href="/users/sign_in" class="btn btn-custom" style="text-align: center; text-decoration:none; display: flex; justify-content: center;
-  align-items: center;" >Login</a>
+
+<% if flash[:alert] %>
+  <div class="flash alert">
+    <%= flash[:alert] %>
   </div>
+<% end %>
+
+<%= f.number_field :ktp, required: true, size: 16, placeholder: 'Isi KTP 16 Digit', class: 'field-input' %>
+<%= f.text_field :nama_lengkap, required: true, placeholder: 'Isi Nama Lengkap Anda', class: 'field-input', pattern: "[a-zA-Z\s]+", title: "Hanya huruf dan spasi yang diperbolehkan" %>
+<%= f.number_field :telepon, required: true, placeholder: 'Isi Nomor Telepon Anda: 082112345678', class: 'field-input' %>
+<%= f.text_area :alamat, required: true, placeholder: 'Isi Alamat Lengkap Anda', class: 'field-input text-area' %>
+<%= f.text_field :pekerjaan, required: true, placeholder: 'Isi Pekerjaan Anda', class: 'field-input' %>
+<%= f.text_field :username, required: true, placeholder: 'Isi Username Anda', class: 'field-input' %>
+<%= f.email_field :email, required: true, autofocus: true, autocomplete: "email", placeholder: 'Isi Email Anda', class: 'field-input' %>
+<%= f.password_field :password, required: true, autocomplete: "new-password", placeholder: 'Buat Password Anda', class: 'field-input' %>
+<%= f.password_field :password_confirmation, required: true, autocomplete: "new-password", placeholder: 'Masukkan Kembali Password Anda', class: 'field-input' %>
+
+<div class="actions">
+  <%= f.submit "Sign up", class: 'btn' %>
+  <a href="/users/sign_in" class="btn btn-custom" style="text-align: center; text-decoration:none; display: flex; justify-content: center; align-items: center;">Login</a>
+</div>
 <% end %>
