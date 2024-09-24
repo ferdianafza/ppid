@@ -2,6 +2,15 @@ ActiveAdmin.register Artikel do
   permit_params :jenis, :judul, :banner, :konten
   config.filters = false
 
+  scope :all, default: true
+  scope "Kegiatan" do |scope|
+    scope.where(jenis: "Kegiatan")
+  end
+  scope "Berita" do |scope|
+    scope.where(jenis: "Berita")
+  end
+
+
   form do |f|
     f.inputs "Artikel Details" do
       f.input :jenis, as: :select, collection: ["Berita", "Kegiatan"]
@@ -17,9 +26,9 @@ ActiveAdmin.register Artikel do
     column :id
     column :jenis
     column :judul
-    column :konten do |artikel|
-      artikel.konten.body.to_s.html_safe
-    end
+    # column :konten do |artikel|
+    #   artikel.konten.body.to_s.html_safe
+    # end
     column :created_at
     actions
   end
