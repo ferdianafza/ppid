@@ -59,6 +59,7 @@
                             <div class="text">
                                 <h6>PPID</h6>
                                 <p>PPID (Pejabat Pengelola Informasi dan Dokumentasi) adalah entitas yang bertanggung jawab untuk menyediakan akses informasi publik dan memastikan transparansi.</p>
+                                <p>berdasarkan PPID terdapat 3 jenis, Utama, Pelaksana dan Pembantu.</p>
                             </div>
                         </li>
                         <li>
@@ -67,6 +68,7 @@
                             <div class="text">
                                 <h6>Informasi</h6>
                                 <p>Informasi adalah data yang dikelola dan disediakan untuk masyarakat, mencakup berbagai aspek yang relevan dengan kepentingan publik.</p>
+                                <p>Berdasarkan Informasi terdapat 4 jenis, berkala, setiap saat, serta merta dan dikecualikan.</p>
                             </div>
                         </li>
                         <li>
@@ -75,6 +77,12 @@
                             <div class="text">
                                 <h6>Jenis Dokumen</h6>
                                 <p>Berbagai jenis dokumen yang tersedia untuk masyarakat.</p>
+                                <p>Berdasarkan Jenis Dokumen nya terdapat 10 jenis, profil dan badan publik,
+                                  program dan kegiatan, informasi kinerja, laporan keuangan, laporan dan prosedur,
+                                  pengaduan dan pelanggaran, pengadaan barang dan jasa, informasi darurat,
+                                  hasil penelitian,
+                                  regulasi.
+                                </p>
                             </div>
                         </li>
                     </ul>
@@ -87,9 +95,7 @@
         </div>
     </section>
     <!-- ***** Features Big Item End ***** -->
-   
 
-    <!-- ***** Features Small Start ***** -->
     <section class="section" id="services">
         <div class="container">
             <div class="row">
@@ -116,31 +122,19 @@
     <!-- ***** Frequently Question Start ***** -->
     <section class="section" id="frequently-question">
         <div class="container">
-            <!-- ***** Section Title Start ***** -->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-heading">
                         <h2>Data Riwayat</h2>
                     </div>
                 </div>
-                <!-- <div class="offset-lg-3 col-lg-6">
-                    <div class="section-heading">
-                        <p>Vivamus venenatis eu mi ac mattis. Maecenas ut elementum sapien. Nunc euismod risus ac lobortis congue. Sed erat quam.</p>
-                    </div>
-                </div> -->
             </div>
-            <!-- ***** Section Title End ***** -->
 
             <div class="row">
                 <div class="left-text col-lg-6 col-md-6 col-sm-12">
                     <h5>Riwayat Pengajuan Informasi</h5>
                     <div class="accordion-text">
-                        <!-- <p>Curabitur placerat diam in risus lobortis, laoreet porttitor est elementum. Nulla ultricies risus quis risus scelerisque, a aliquam tellus maximus. Cras pretium nulla ac convallis iaculis. Aenean bibendum erat vitae odio sodales, in facilisis tellus volutpat.</p>
-                        <p>Sed lobortis pellentesque magna ac congue. Suspendisse quis molestie magna, id eleifend ex. Ut mollis ultricies diam nec dictum. Morbi commodo hendrerit mi vel vulputate. Proin non tincidunt dui. Lorem ipsum dolor sit amet.</p>
-                        <span>Email: <a href="#">email@company.com</a><br></span>
-                        <a href="#contact-us" class="main-button">Contact Us</a> -->
                         <%= line_chart Pengajuaninformasi.group_by_day(:created_at).count %>
-
                     </div>
                 </div>
                 <div class="right-text col-lg-6 col-md-6 col-sm-12">
@@ -153,14 +147,10 @@
             </div>
         </div>
     </section>
-    <!-- ***** Frequently Question End ***** -->
 
-
-    <!-- ***** Contact Us Start ***** -->
     <section class="section" id="contact-us">
         <div class="container-fluid">
             <div class="row">
-                <!-- ***** Contact Map Start ***** -->
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div id="map">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.1711764242077!2d107.55171880985391!3d-6.870082193099933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e5b99d5bc289%3A0x918cd4f894a1460b!2sDinas%20Komunikasi%20Informatika%20Kearsipan%20Dan%20Perpustakaan%20Cimahi!5e0!3m2!1sid!2sid!4v1723012050950!5m2!1sid!2sid" width="100%" height="500px" frameborder="0" style="border:0" allowfullscreen></iframe>
@@ -172,7 +162,6 @@
                         <%= pie_chart Pengajuaninformasi.group(:status).count %>
                     </div>
                 </div>
-                <!-- ***** Contact Form End ***** -->
             </div>
         </div>
     </section>
