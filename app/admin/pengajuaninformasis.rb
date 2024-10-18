@@ -16,6 +16,42 @@ ActiveAdmin.register Pengajuaninformasi do
   # end
 
   permit_params :status
+  actions :all, except: [:new, :create, :destroy]
+
+
+  show do
+   attributes_table do
+     row :noEKtp
+     row :namaLenkap
+     row :alamatEmail
+     row :noTelepon
+     row :jenisPermohonan
+     row :alamatLengkap
+     row :pekerjaan
+     row :kebutuhan
+     row :cara_perolehan_informasi
+     row :tujuan
+     row :status
+     row :created_at
+     row :updated_at
+
+     row "Dokumen Identitas" do |pengajuan|
+       if pengajuan.dokumenIdentitas.attached?
+         link_to pengajuan.dokumenIdentitas.blob.filename, rails_blob_path(pengajuan.dokumenIdentitas.blob)
+       else
+         "No dokumenIdentitas"
+       end
+     end
+
+     row "Dokumen Permohonan Informasi" do |pengajuan|
+       if pengajuan.dokumenPermohonanInformasi.attached?
+         link_to pengajuan.dokumenPermohonanInformasi.blob.filename, rails_blob_path(pengajuan.dokumenPermohonanInformasi.blob)
+       else
+         "No dokumenPermohonanInformasi"
+       end
+     end
+   end
+ end
 
   scope :all, default: true
   scope "Pengajuan" do |scope|
@@ -40,9 +76,9 @@ ActiveAdmin.register Pengajuaninformasi do
     id_column
     column :noEKtp
     column :namaLenkap
-    column :alamatEmail
-    column :noTelepon
-    column :jenisPermohonan
+    # column :alamatEmail
+    # column :noTelepon
+    # column :jenisPermohonan
     column :status
     # column :alamatLengkap
     # column :pekerjaan
