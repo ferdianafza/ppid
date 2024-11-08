@@ -95,7 +95,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem 'shoulda-matchers', '~> 5.0'
-  gem 'factory_bot_rails'
 end
 
 group :production do
