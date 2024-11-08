@@ -6,6 +6,8 @@ class Artikel < ApplicationRecord
   # Validasi atribut lainnya seperti jenis dan judul
   validates :jenis, inclusion: { in: ["Berita", "Kegiatan"] }
   validates :judul, presence: true
+  validates :banner, presence: true
+  validates :konten, presence: true
 
   def self.ransackable_attributes(auth_object = nil)
     ["banner", "created_at", "id", "jenis", "judul", "updated_at", "konten", "banner_attachment_id"]
