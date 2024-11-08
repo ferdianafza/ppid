@@ -13,7 +13,8 @@ amazon:
   secret_access_key: <%= Rails.application.credentials.dig(:amazon, :s3, :secret_access_key) %>
   region: ap-southeast-1
   # region: <%= Rails.application.credentials.dig(:amazon, :s3, :region) %>
-  bucket: <%= Rails.application.credentials.dig(:amazon, :s3, :bucket) %>
+  bucket: ppid-cimahi
+  # bucket: <%= Rails.application.credentials.dig(:amazon, :s3, :bucket) %>
 
 
 # Remember not to checkin your GCS keyfile to a repository
