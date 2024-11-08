@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :pengajuaninformasis
 
   # validates :ktp, presence: true, length: { minimum: 16, maximum: 16}
-  validates :ktp, presence: true, length: { is: 16 }
+  validates :ktp, presence: true, length: { is: 16 }, uniqueness: { message: "sudah terdaftar" }
 
   # Validasi untuk memastikan nama lengkap hanya mengandung huruf
   validates :nama_lengkap, format: { with: /\A[a-zA-Z\s]+\z/, message: "hanya boleh mengandung huruf dan spasi" }
